@@ -45,6 +45,30 @@ if ("")
 
 if (document.all) [1]
 
+## Truthy values
+
+if (true)
+
+if ({})
+
+if ([])
+
+if (42)
+
+if ("foo")
+
+if (new Date())
+
+if (-42)
+
+if (3.14)
+
+if (-3.14)
+
+if (Infinity)
+
+if (-Infinity)
+
 # 3. Closure
 
 U funkcijama dostupne su sve promenljive iz spoljasnjeg scope-a, a nisu iz unutrasnjeg scope-a.
