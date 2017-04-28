@@ -61,7 +61,7 @@ In other cases, partial application is useful when we have a very generic functi
 
 For instance, we have a function send(from, to, text). Then, inside a user object we may want to use a partial variant of it: sendTo(to, text) that sends from the current user.
 
-# Hoisting
+# 5. Hoisting
 
 Hoisting means “moving to the beginning of a scope.” Function declarations are hoisted completely, variable declarations only partially.
 Function declarations are completely hoisted. That allows you to call a function before it has been declared.
