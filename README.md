@@ -16,12 +16,34 @@ ES5 and ES6: Object, Array, Function
 
 ## Array and Function are object, they have prototype
 var a = {};
+
 var b = function(){};
+
 var c = [];
 
 a.__proto__.
+
 b.__proto__.
+
 c.__proto__.
+
+## Falsy values
+
+if (false)
+
+if (null)
+
+if (undefined)
+
+if (0)
+
+if (NaN)
+
+if ('')
+
+if ("")
+
+if (document.all) [1]
 
 # 3. Closure
 
