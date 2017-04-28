@@ -8,6 +8,7 @@ ES6: block scope (global, function, if, loops, switch, try catch)
 # Data types value
 ## Primitive
 ES5 and ES6: Number, String, Boolean, Null, Undefined 
+
 ES6: Symbols
 
 ## Object
