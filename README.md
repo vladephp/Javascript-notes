@@ -33,13 +33,17 @@ console.dir(nazivFunkcije) - prikazuje koje sve promenljive su u njenom closure-
 
 ## Example
 function mul(a, b) {
+
   return a * b;
+  
 }
 
 let double = mul.bind(null, 2);
 
 alert( double(3) ); // = mul(2, 3) = 6
+
 alert( double(4) ); // = mul(2, 4) = 8
+
 alert( double(5) ); // = mul(2, 5) = 10
 
 The call to mul.bind(null, 2) creates a new function double that passes calls to mul, fixing null as the context and 2 as the first argument. Further arguments are passed “as is”.
