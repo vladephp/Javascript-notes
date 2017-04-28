@@ -60,3 +60,12 @@ Here our benefit is that we created an independent function with a readable name
 In other cases, partial application is useful when we have a very generic function, and want a less universal variant of it for convenience.
 
 For instance, we have a function send(from, to, text). Then, inside a user object we may want to use a partial variant of it: sendTo(to, text) that sends from the current user.
+
+# Hoisting
+
+Hoisting means “moving to the beginning of a scope.” Function declarations are hoisted completely, variable declarations only partially.
+Function declarations are completely hoisted. That allows you to call a function before it has been declared.
+
+ES5: var - hoist
+
+ES6: const, let - temporary dead zone
