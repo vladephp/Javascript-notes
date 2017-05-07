@@ -216,14 +216,27 @@ Every function, while executing, has a reference to its current execution contex
 
 ## 4 Rules of using this order by precedence
 
-### Was the function called with 'new' keyword?
+- Was the function called with 'new' keyword?
 
-### EXPLICIT BINDING: Was the funcction called with 'call' or 'apply' specifying an explicit this? or Hard binding (bind)?
+- EXPLICIT BINDING: Was the function called with 'call' or 'apply' specifying an explicit this? or Hard binding (bind)?
 
 We can't change hard binding with call or apply.
 
-### IMPLICIT BINDING: Was the function called via a containing/owning object (context)?
+- IMPLICIT BINDING: Was the function called via a containing/owning object (context)?
 
-### DEFAULT: global object (except strict mode - undefind)
+- DEFAULT: global object (except strict mode - undefind)
 
 
+# 7. Function
+
+## Function with new keyword
+
+When we put new keyword in front any funciton call, turn that function call in consturctor call. Four things occur:
+
+- new object will be create
+
+- that object links to another object
+
+- that new object gets bound as this keyword for function call
+
+- if function doesn't return anything, function will return this ( that new object )
