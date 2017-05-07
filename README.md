@@ -208,3 +208,22 @@ Function declarations are completely hoisted. That allows you to call a function
 ES5: var - hoist
 
 ES6: const, let - temporary dead zone
+
+
+# 6. This
+
+Every function, while executing, has a reference to its current execution context, called this.
+
+## 4 Rules of using this order by precedence
+
+### Was the function called with 'new' keyword?
+
+### EXPLICIT BINDING: Was the funcction called with 'call' or 'apply' specifying an explicit this? or Hard binding (bind)?
+
+We can't change hard binding with call or apply.
+
+### IMPLICIT BINDING: Was the function called via a containing/owning object (context)?
+
+### DEFAULT: global object (except strict mode - undefind)
+
+
