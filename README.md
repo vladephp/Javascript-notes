@@ -235,7 +235,7 @@ When we put new keyword in front any funciton call, turn that function call in c
 
 - new object will be create
 
-- that object links to another object
+- that object links to another object (to prototype of funciton)
 
 - that new object gets bound as this keyword for function call
 
