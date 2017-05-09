@@ -202,8 +202,7 @@ For instance, we have a function send(from, to, text). Then, inside a user objec
 
 # 5. Hoisting
 
-Hoisting means “moving to the beginning of a scope.” Function declarations are hoisted completely, variable declarations only partially.
-Function declarations are completely hoisted. That allows you to call a function before it has been declared.
+Hoisting means “moving to the beginning of a scope.” Function declarations are hoisted completely, variable declarations only partially. That allows you to call a function before it has been declared.
 
 ES5: var - hoist
 
