@@ -233,10 +233,7 @@ We can't change hard binding with call or apply.
 
 When we put new keyword in front any funciton call, turn that function call in consturctor call. Four things occur:
 
-- new object will be create
-
-- that object links to another object (to prototype of funciton)
-
-- that new object gets bound as this keyword for function call
-
-- if function doesn't return anything, function will return this ( that new object )
+ - a brand new object is created (aka, constructed) out of thin air
+ - the newly constructed object is [[Prototype]]-linked
+ - the newly constructed object is set as the this binding for that function call
+ - unless the function returns its own alternate object, the new-invoked function call will automatically return the newly constructed object.
