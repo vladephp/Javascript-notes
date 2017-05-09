@@ -216,15 +216,23 @@ Every function, while executing, has a reference to its current execution contex
 
 ## 4 Rules of using this order by precedence
 
-- Was the function called with 'new' keyword?
+ - Is the function called with new (new binding)? If so, this is the newly constructed object.
 
-- EXPLICIT BINDING: Was the function called with 'call' or 'apply' specifying an explicit this? or Hard binding (bind)?
+var bar = new foo()
 
-We can't change hard binding with call or apply.
+ - Is the function called with call or apply (explicit binding), even hidden inside a bind hard binding? If so, this is the explicitly specified object.
 
-- IMPLICIT BINDING: Was the function called via a containing/owning object (context)?
+var bar = foo.call( obj2 )
 
-- DEFAULT: global object (except strict mode - undefind)
+ - Is the function called with a context (implicit binding), otherwise known as an owning or containing object? If so, this is that context object.
+
+var bar = obj1.foo()
+
+ - Otherwise, default the this (default binding). If in strict mode, pick undefined, otherwise pick the global object.
+
+var bar = foo()
+
+That's it. That's all it takes to understand the rules of this binding for normal function calls. Well... almost.
 
 
 # 7. Function
