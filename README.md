@@ -232,9 +232,6 @@ var bar = obj1.foo()
 
 var bar = foo()
 
-That's it. That's all it takes to understand the rules of this binding for normal function calls. Well... almost.
-
-
 # 7. Function
 
 ## Function with new keyword
