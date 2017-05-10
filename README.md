@@ -164,7 +164,7 @@ typeof document.all === 'undefined';
 
 # 3. Closure
 
-U funkcijama dostupne su sve promenljive iz spoljasnjeg scope-a, a nisu iz unutrasnjeg scope-a.
+Closure is when a function can remember and access its lexical scope even when it's invoked outside its lexical scope.
 
 console.dir(nazivFunkcije) - prikazuje koje sve promenljive su u njenom closure-u
 
