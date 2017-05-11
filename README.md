@@ -286,7 +286,7 @@ This is because the JavaScript engine will actually hoist i to the top of the fu
 
 One will be show in loop, although not in the list array.
 
-# For of
+## For of
 
 New in ES6
 
@@ -320,7 +320,7 @@ for (var char of 'Hello') {
 
 // o
 
-# forEach
+## forEach
 
 var list = [8, 3, 11, 9, 6];
 
