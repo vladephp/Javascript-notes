@@ -241,3 +241,95 @@ When we put new keyword in front any funciton call, turn that function call in c
  - the newly constructed object is [[Prototype]]-linked
  - the newly constructed object is set as the this binding for that function call
  - unless the function returns its own alternate object, the new-invoked function call will automatically return the newly constructed object.
+ 
+ # 8. For vs For in vs For of vs forEach
+ 
+ ## For
+ 
+ var list = [8, 3, 11, 9, 6];
+
+for (var i = 0; i < list.length; i++) {
+
+  console.log(list[i]);
+  
+}
+
+There’s nothing wrong with this approach, but it just feels like a lot of code to write these days. We have to keep track of the loop counter variable (i in the above example), tell it to increment by 1 with each iteration (i++), and control when the iteration ends (i < list.length).
+
+var list = [8, 3, 11, 9, 6], length = list.length, i;
+
+for (i = 0; i < length; i++) {
+
+  console.log(list[i]);
+  
+}
+
+
+
+This is because the JavaScript engine will actually hoist i to the top of the function (see the article on block-level scoping for more on variable hoisting). Also in the previous for loop, list.length gets accessed with every iteration of the loop even though it doesn’t change, so storing it in a length variable is a tad bit more efficient. This all seems overkill when all we want to do is iterate over each element of the list
+ 
+ ## For in
+ 
+ Use for objects only. Don't use for arrays.
+ 
+ If you use with arrays, this can happen:
+ 
+ Array.prototype.one = 'one';
+ 
+ var list = [8, 3, 11, 9, 6];
+ 
+ for (var i in list) {
+ 
+    console.log(list[i]);
+    
+}
+
+One will be show in loop, although not in the list array.
+
+# For of
+
+New in ES6
+
+Use for arrays.
+
+let list = [8, 3, 11, 9, 6];
+
+for (let value of list) {
+
+  console.log(value);
+  
+}
+
+We get the succinct syntax of for-in, the run-to-completion of forEach, and the ability to break, continue, and return of the simple for loop.
+
+But for-of doesn’t just work for arrays. If it did, it probably wouldn’t have been meaty enough to add to the ES6 specification. Other existing collections like the DOM NodeList object, the arguments object, and strings also work with for-of. Just like with arrays, this makes it a little bit easier to iterate over these non-array objects.
+
+for (var char of 'Hello') {
+    console.log(char);
+}
+
+// output:
+
+// H
+
+// e
+
+// l
+
+// l
+
+// o
+
+# forEach
+
+var list = [8, 3, 11, 9, 6];
+
+list.forEach(function(value, i) {
+
+  console.log(value);
+  
+});
+
+With a normal for loop you can break to end the loop early. There isn’t a way to end forEach early. Including break within the forEach callback function will be a syntax error. It is only valid within loops.
+
+Similarly, with a for loop when we return, we are exiting out of the entire function that the for loop is in. However, putting a return within the forEach callback function just exits out of the callback function itself early. It’s actually more or less equivalent to doing continue in a for loop, but far less intuitive. Including continue in the forEach call back function would be the same sort of syntax error we got with break.
