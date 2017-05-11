@@ -1,4 +1,4 @@
-# 1. Scope
+# 1. Lexical Scope
 Where a variable is available in your code
 
 ES5: global or function scope
