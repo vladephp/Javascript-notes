@@ -233,6 +233,162 @@ var bar = foo()
 
 # 7. Function
 
+## Named Function Declaration
+
+function sum(num1,num2) {
+
+  return num1 + num2;
+  
+}
+
+The "classic" declaration, which works well for simple uses. Functions declared like this are "hoisted", meaning, the javascript engine reads all these declarations first before executing any of the rest of the code. The declaration statement stands alone, and cannot be combined with other expressions. Also, notice that this declaration does not need to be followed with a semicolon.
+
+## Function Expressions
+
+### Variable Assignment
+
+// Named
+
+var sum = function add(num1,num2) {
+
+  return num1 + num2;
+  
+};
+
+// Anonymous
+
+var sum = function(num1, num2) {
+
+  return num1 + num2;
+  
+};
+
+This is functionally equivalent to the Function Declaration above, except this variation is NOT hoisted. The name of our function (add) cannot be called directly (see below), but it can come in handy when debugging:
+
+sum(1,1); // returns 2
+
+add(1,1); // "add is not defined"
+
+### Immediately invoked
+
+// Named
+
+(function sum(num1, num2) {
+
+  return num1 + num2;
+  
+}(1, 2));
+
+// Anonymous
+
+(function(num1, num2) {
+
+  return num1 + num2;
+  
+}(1, 2));
+
+This function is immediately invoked, meaning that it is defined and called at the same time. The function's name is only available within its execution scope (defined by the parentheses), so it cannot be called later in the program.
+
+sum(1,1);// "sum is not defined"
+
+Immediately invoked functions can be used to encapsulate a program, preventing it from polluting the global namespace.
+
+### Assigned and Invoked
+
+// Named
+
+var sum = function add(num1, num2) {
+
+  return num1 + num2;
+  
+}(1, 2);
+
+// Anonymous
+
+var sum = function(num1, num2) {
+
+  return num1 + num2;
+  
+}(1, 2);
+
+This is a combination of the variable assignment expression and the immediately invoked function (both demonstrated above). One neat application for the named variety of this is to make recursive functions more readable, by substituting arguments.callee with your function name.
+
+### Property Assignment
+
+// Named
+
+var obj1 = {
+
+  sum: function add(num1, num2) {
+  
+    return num1 + num2
+    
+  }
+  
+};
+
+// Anonymous
+
+var obj2 = {
+
+  sum: function(num1, num2) {
+  
+    return num1 + num2
+    
+  }
+  
+};
+
+By assigning functions (either named or unnamed) to properties of objects, we define methods on those objects. This has many applications in object oriented programming. We can also use this to namespace our functions, and keep them out of the global scope.
+
+Here's how we would call the methods defined in the examples:
+
+obj1.sum(1, 2); // returns 3
+
+obj2.sum(1, 2); // returns 3
+
+### Passed as Argument
+
+// Named
+
+window.setTimeout(<strong>function add() {
+
+  alert(1 + 2);
+  
+}</strong>, 500);
+
+// Anonymous
+
+window.setTimeout(<strong>function() {
+
+  alert(1 + 2);
+  
+}</strong>, 500);
+
+Function names in ECMAScript are nothing more than variables, meaning we can pass them around like variables. Many methods (like setTimeout()) take functions as arguments. This is a common pattern for defining callbacks.
+In these examples, we define them in line, but we could also pass in predefined functions.
+
+### Returned (closure)
+
+Functions can be returned from other functions. This lets us do clever things like the following (picking up from the example):
+
+var bob = {}, rob = {};
+
+bob.count = counter();
+
+rob.count = counter();
+
+bob.count(); // alerts "0"
+
+bob.count(); // alerts "1"
+
+rob.count(); // alerts "0"
+
+rob.count(); // alerts "1"
+
+Each person can increment their own count variable despite the fact that it originated outside the scope of the count() function. This is called a closure.
+
+
 ## Function with new keyword
 
 When we put new keyword in front any funciton call, turn that function call in consturctor call. Four things occur:
