@@ -489,3 +489,9 @@ list.forEach(function(value, i) {
 With a normal for loop you can break to end the loop early. There isn’t a way to end forEach early. Including break within the forEach callback function will be a syntax error. It is only valid within loops.
 
 Similarly, with a for loop when we return, we are exiting out of the entire function that the for loop is in. However, putting a return within the forEach callback function just exits out of the callback function itself early. It’s actually more or less equivalent to doing continue in a for loop, but far less intuitive. Including continue in the forEach call back function would be the same sort of syntax error we got with break.
+
+
+# REMARKS
+
+ - With and Eval never use
+ - Worker 
