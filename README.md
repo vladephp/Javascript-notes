@@ -398,6 +398,11 @@ When we put new keyword in front any funciton call, turn that function call in c
  - the newly constructed object is set as the this binding for that function call
  - unless the function returns its own alternate object, the new-invoked function call will automatically return the newly constructed object.
  
+ ## High-order function
+  A higher-order function is a function that can take another function as an argument, or that returns a function as a result.
+
+https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/String/localeCompare
+ 
  # 8. For vs For in vs For of vs forEach
  
  ## For
@@ -491,6 +496,18 @@ With a normal for loop you can break to end the loop early. There isn’t a way 
 Similarly, with a for loop when we return, we are exiting out of the entire function that the for loop is in. However, putting a return within the forEach callback function just exits out of the callback function itself early. It’s actually more or less equivalent to doing continue in a for loop, but far less intuitive. Including continue in the forEach call back function would be the same sort of syntax error we got with break.
 
 The for-in and for-of loops work with const because the loop initializer creates a new binding on each iteration through the loop rather than attempting to modify the value of an existing binding (as was the case with the previous example using for instead of for-in).
+
+ForEach ne for
+
+Object.keys.forEach not for in
+
+# Data Structure
+
+You choose data structures based on your projected usage patterns. If you need fast random access to elements in the sequence, you choose some form of dynamic array. If you need to frequently insert and remove elements at arbitrary positions in the sequence, you choose a linked list. If you only wish to append and remove elements from one end, you choose a stack, which can be implemented as a constrained adaptation of the linked list. Similarly, the queueis an adaptation of the linked list to append to the tail and remove from the head. Both the stack and the queue can be written as adaptations of the deque, though, which is itself an adaptation of the general list concept to support addition and removal of elements at either end of the sequence, but not in the middle (the name "deque" stands for "double-ended queue").
+
+These assertions are supported by algorithmic analysis of the number of steps required to perform each operation for each data structure as a function of the number of elements in the structure. Optimal performance is O(1), meaning that the time required is constant, regardless of the number of elements in the sequence. Random access in an array, then, is O(1). O(n)would mean the time required is directly proportional to the number of elements in the sequence: list node insertion and removal is O(n). In contrast, array element insertion and removal is O(n²), because of the overhead of copying each element from the point of insertion to the end of the sequence one place over. In ever situation, you want to minimize the magnitude of the value within the parentheses.
+
+A data structures course or text will provide you with detailed instruction in all of these comparisons and analyses, better enabling you to make informed decisions as to what data structure to employ in which situation.
 
 
 # REMARKS
