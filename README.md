@@ -490,6 +490,8 @@ With a normal for loop you can break to end the loop early. There isn’t a way 
 
 Similarly, with a for loop when we return, we are exiting out of the entire function that the for loop is in. However, putting a return within the forEach callback function just exits out of the callback function itself early. It’s actually more or less equivalent to doing continue in a for loop, but far less intuitive. Including continue in the forEach call back function would be the same sort of syntax error we got with break.
 
+The for-in and for-of loops work with const because the loop initializer creates a new binding on each iteration through the loop rather than attempting to modify the value of an existing binding (as was the case with the previous example using for instead of for-in).
+
 
 # REMARKS
 
